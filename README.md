@@ -1,4 +1,4 @@
-# 📄 Dart-1 Project
+# 📄 Dart-App Project
 Projeto de desenvolvimento mobile para início em Flutter/Dart
 
 ## :link: Configurações
