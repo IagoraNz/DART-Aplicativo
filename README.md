@@ -1,16 +1,44 @@
-# flutterapp
+# 📄 Dart-1 Project
+Projeto de desenvolvimento mobile para início em Flutter/Dart
 
-A new Flutter project.
+## :link: Configurações
+Para execução deste algoritmo, deve ter-se uma IDE, o Flutter e o Dart instalados
 
-## Getting Started
+Caso já os tenha instalado, verifique através do terminal e inserindo flutter --version para Flutter:
+```
+Flutter 3.16.9 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision 41456452f2 (13 days ago) • 2024-01-25 10:06:23 -0800
+Engine • revision f40e976bed
+Tools • Dart 3.2.6 • DevTools 2.28.5
+```
+E o chocolatey --version:
+```
+2.2.2
+```
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## :link: Método utilizado
+Para desenvolver a aplicação, foram usando os seguintes passos:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+> Configurando IDE
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Uso do Visual Studio Code por meio dos programas e extensões que configuram o Flutter e o Dart
+
+> Debugando
+
+Através das configurações do desenvolvedor no Android foi permitido o Debug USB em todos os seus níveis,
+
+> Chocolatey
+
+Por razões operacionais, o paralelo de desenvolvimento foi feito pelo Debug USB ao invés de simuladores, com o uso do scrCpy. No Powershell:
+```
+choco install scrcpy
+```
+```
+choco install adb
+````
+Com isso, é possível espelhar e movimentar a tela do celular no notebook
+
+> Final
+
+Apenas run e debug e desenvolvimento sincronizado
