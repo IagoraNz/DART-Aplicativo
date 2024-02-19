@@ -14,41 +14,52 @@ class PerguntaApp extends StatefulWidget {
 }
 
 class _PerguntaAppState extends State<PerguntaApp> {
-  void log(Object? message) {
-    print(message);
-  }
-
   var _perguntaSelecionada = 0;
 
   void _responder() {
     setState(() {
       _perguntaSelecionada++;
     });
-    var mensagem = 'Pergunta respondida';
-    log(mensagem);
   }
 
-  final List<String> perguntas = [
-    'Qual é a sua cor favorita?',
-    'Qual é o seu animal favorito?',
+  final List<Map<String, Object>>? perguntas = [
+    {
+      'texto': 'Qual é a capital do Brasil?',
+      'respostas': ['Brasília', 'Rio de Janeiro', 'São Paulo', 'Salvador'],
+    },
+    {
+      'texto': 'Em que ano o Brasil foi descoberto?',
+      'respostas': ['1498', '1500', '1502', '1503'],
+    },
+    {
+      'texto': 'Qual o ano de fundação de Brasília?',
+      'respostas': ['1958', '1959', '1961', '1960'],
+    }
   ];
 
   @override
   Widget build(BuildContext context) {
     String titulo = 'Perguntas';
+
+    List<Resposta> respostas = [];
+
+    if(perguntas != null){
+      for(String textoResp in perguntas![_perguntaSelecionada]['respostas'] as List<String>){
+        respostas.add(Resposta(texto: textoResp, onPress: _responder));
+      }
+    }
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           title: Text(titulo),
+          centerTitle: true,
         ),
         body: Center(
           child: Column(
             children: <Widget>[
-              Questao(texto: perguntas[_perguntaSelecionada]), // Fornecer o argumento obrigatório texto
-              Resposta(texto: 'Resposta 1', onPress: _responder),
-              Resposta(texto: 'Resposta 2', onPress: _responder),
-              Resposta(texto: 'Resposta 3', onPress: _responder),
-              Resposta(texto: 'Resposta 4', onPress: _responder)
+              Questao(texto: perguntas![_perguntaSelecionada]['texto'].toString()),
+              ...respostas,
             ],
           ),
         ),
