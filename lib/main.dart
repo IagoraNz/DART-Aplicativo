@@ -68,7 +68,14 @@ class _PerguntaAppState extends State<PerguntaApp> {
               )).toList(),
             ],
           ),
-        ) : null,
+        ) : const Center(
+          child: Text(
+            'Parabéns!',
+            style: TextStyle(
+              fontSize: 28
+            ),
+          ),
+        ),
       ),
     );
   }
