@@ -17,12 +17,14 @@ class _PerguntaAppState extends State<PerguntaApp> {
   var _perguntaSelecionada = 0;
 
   void _responder() {
-    setState(() {
-      _perguntaSelecionada++;
-    });
+    if(temPerguntaSelecionada){
+      setState(() {
+        _perguntaSelecionada++;
+      });
+    }
   }
 
-  final List<Map<String, Object>>? perguntas = [
+  final List<Map<String, Object>> _perguntas = const [
     {
       'texto': 'Qual é a capital do Brasil?',
       'respostas': ['Brasília', 'Rio de Janeiro', 'São Paulo', 'Salvador'],
@@ -37,11 +39,17 @@ class _PerguntaAppState extends State<PerguntaApp> {
     }
   ];
 
+  bool get temPerguntaSelecionada {
+    return _perguntaSelecionada < _perguntas.length;
+  }
+
   @override
   Widget build(BuildContext context) {
     String titulo = 'Perguntas';
 
-    List<String> respostas = perguntas![_perguntaSelecionada]['respostas'] as List<String>;
+    List<String>? respostas = temPerguntaSelecionada
+        ? _perguntas[_perguntaSelecionada]['respostas'] as List<String>?
+        : null;
 
     return MaterialApp(
       home: Scaffold(
@@ -49,17 +57,18 @@ class _PerguntaAppState extends State<PerguntaApp> {
           title: Text(titulo),
           centerTitle: true,
         ),
-        body: Center(
+        body: temPerguntaSelecionada ? Center(
           child: Column(
             children: <Widget>[
-              Questao(texto: perguntas![_perguntaSelecionada]['texto'].toString()),
-              ...respostas.map((textoResposta) => Resposta(
+              Questao(texto: _perguntas[_perguntaSelecionada]['texto'].toString()),
+              if (respostas != null)
+                ...respostas.map((textoResposta) => Resposta(
                 texto: textoResposta,
                 onPress: _responder,
               )).toList(),
             ],
           ),
-        ),
+        ) : null,
       ),
     );
   }
