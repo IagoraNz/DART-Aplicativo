@@ -8,7 +8,7 @@ class Questao extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10), //EdgeInsets.all(10) faz com que o texto fique mais afastado das bordas
       child: SizedBox(
         width: double.infinity,
         child: Text(

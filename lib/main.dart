@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './resposta.dart';
 import './questao.dart';
+import './resultado.dart';
 
 void main() {
   runApp(const PerguntaApp());
@@ -17,7 +18,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
   var _perguntaSelecionada = 0;
 
   void _responder() {
-    if(temPerguntaSelecionada){
+    if (temPerguntaSelecionada) {
       setState(() {
         _perguntaSelecionada++;
       });
@@ -57,25 +58,20 @@ class _PerguntaAppState extends State<PerguntaApp> {
           title: Text(titulo),
           centerTitle: true,
         ),
-        body: temPerguntaSelecionada ? Center(
-          child: Column(
-            children: <Widget>[
-              Questao(texto: _perguntas[_perguntaSelecionada]['texto'].toString()),
-              if (respostas != null)
-                ...respostas.map((textoResposta) => Resposta(
-                texto: textoResposta,
-                onPress: _responder,
-              )).toList(),
-            ],
-          ),
-        ) : const Center(
-          child: Text(
-            'Parabéns!',
-            style: TextStyle(
-              fontSize: 28
-            ),
-          ),
-        ),
+        body: temPerguntaSelecionada
+            ? Center(
+                child: Column(
+                  children: <Widget>[
+                    Questao(texto: _perguntas[_perguntaSelecionada]['texto'].toString()),
+                    if (respostas != null)
+                    ...respostas.map((textoResposta) => Resposta(
+                      texto: textoResposta,
+                      onPress: _responder,
+                    )).toList(),
+                  ],
+                ),
+              )
+            : const Resultado(),
       ),
     );
   }
