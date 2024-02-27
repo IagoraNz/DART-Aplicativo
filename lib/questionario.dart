@@ -5,7 +5,7 @@ import './resposta.dart';
 class Questionario extends StatelessWidget {
   final List<Map<String, Object>> perguntas;
   final int perguntaSelecionada;
-  final void Function() responder;
+  final void Function(int) responder;
 
   const Questionario(
       {Key? key,
@@ -32,7 +32,8 @@ class Questionario extends StatelessWidget {
             ...respostas
                 .map((resposta) => Resposta(
                       texto: resposta['texto'].toString(),
-                      onPress: responder,
+                      onPress: () => responder(int.parse(resposta['pontuacao'].toString())),
+                    //.parse converte o valor para inteiro em .toString()
                     ))
                 .toList(),
         ],
