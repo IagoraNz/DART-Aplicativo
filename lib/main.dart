@@ -23,7 +23,6 @@ class _PerguntaAppState extends State<PerguntaApp> {
         _pontuacaoTotal += pontuacao;
       });
     }
-    print(_pontuacaoTotal);
   }
 
   final List<Map<String, Object>> _perguntas = const [
@@ -76,7 +75,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
                 perguntaSelecionada: _perguntaSelecionada,
                 responder: _responder,
               )
-            : const Resultado(),
+            : Resultado(pontuacao: _pontuacaoTotal),
       ),
     );
   }
