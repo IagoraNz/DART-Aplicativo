@@ -25,6 +25,13 @@ class _PerguntaAppState extends State<PerguntaApp> {
     }
   }
 
+  void _reiniciarQuestionario() {
+    setState(() {
+      _perguntaSelecionada = 0;
+      _pontuacaoTotal = 0;
+    });
+  }
+
   final List<Map<String, Object>> _perguntas = const [
     {
       'texto': 'Qual é a capital do Brasil?',
@@ -62,20 +69,28 @@ class _PerguntaAppState extends State<PerguntaApp> {
   @override
   Widget build(BuildContext context) {
     String titulo = 'Perguntas';
+    const Color appBarColor = Color.fromARGB(255, 67, 119, 162);
 
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text(titulo),
+          title: Text(
+            titulo,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          ),
           centerTitle: true,
+          backgroundColor: appBarColor,
         ),
         body: temPerguntaSelecionada
             ? Questionario(
-                perguntas: _perguntas,
-                perguntaSelecionada: _perguntaSelecionada,
-                responder: _responder,
-              )
-            : Resultado(pontuacao: _pontuacaoTotal),
+          perguntas: _perguntas,
+          perguntaSelecionada: _perguntaSelecionada,
+          responder: _responder,
+        )
+            : Resultado(pontuacao: _pontuacaoTotal, reiniciarQuestionario: _reiniciarQuestionario),
       ),
     );
   }
