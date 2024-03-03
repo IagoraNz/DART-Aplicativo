@@ -32,14 +32,15 @@ class Resultado extends StatelessWidget {
         TextButton(
           onPressed: reiniciarQuestionario,
           style: ButtonStyle(
-            foregroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+            backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+            foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
             //foregroundColor serve para definir a cor do texto do botão
             //MaterialStateProperty.all<Color>(Colors.blue) é um objeto que define a cor do texto do botão
             //.all é um método que define a cor do texto do botão para todos os estados possíveis
           ),
           child: const Text(
             'Reiniciar?',
-            style: TextStyle(fontSize: 18),
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
         )
       ],
