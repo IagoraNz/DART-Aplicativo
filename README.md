@@ -1,44 +1,42 @@
 # 📄 Dart-App Project
-Projeto de desenvolvimento mobile para início em Flutter/Dart
+Mobile development project to start in Flutter/Dart
 
-## :link: Configurações
-Para execução deste algoritmo, deve ter-se uma IDE, o Flutter e o Dart instalados
+## :link: Settings
+To run this algorithm, you must have an IDE, Flutter and Dart installed
 
-Caso já os tenha instalado, verifique através do terminal e inserindo flutter --version para Flutter:
+If you have already installed them, check using the terminal and entering flutter --version for Flutter:
 ```
 Flutter 3.16.9 • channel stable • https://github.com/flutter/flutter.git
 Framework • revision 41456452f2 (13 days ago) • 2024-01-25 10:06:23 -0800
 Engine • revision f40e976bed
 Tools • Dart 3.2.6 • DevTools 2.28.5
 ```
-E o chocolatey --version:
+And the chocolatey --version:
 ```
 2.2.2
 ```
+## :link: Method used
+To develop the application, the following steps were used:
 
+> Configuring IDE
 
-## :link: Método utilizado
-Para desenvolver a aplicação, foram usando os seguintes passos:
+Using Visual Studio Code through the programs and extensions that configure Flutter and Dart
 
-> Configurando IDE
+> Debugging
 
-Uso do Visual Studio Code por meio dos programas e extensões que configuram o Flutter e o Dart
-
-> Debugando
-
-Através das configurações do desenvolvedor no Android foi permitido o Debug USB em todos os seus níveis,
+Through the developer settings on Android, USB Debug was allowed at all levels
 
 > Chocolatey
 
-Por razões operacionais, o paralelo de desenvolvimento foi feito pelo Debug USB ao invés de simuladores, com o uso do scrCpy. No Powershell:
+For operational reasons, the development parallel was done by Debug USB instead of simulators, using scrCpy. In Powershell:
 ```
 choco install scrcpy
 ```
 ```
 choco install adb
 ````
-Com isso, é possível espelhar e movimentar a tela do celular no notebook
+With this, it is possible to mirror and move the cell phone screen on the notebook
 
-> Final
+> By conclusion
 
-Apenas run e debug e desenvolvimento sincronizado
+Just run and debug and synchronized development
